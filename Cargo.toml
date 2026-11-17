@@ -1,0 +1,25 @@
+[package]
+name = "rsty"
+version = "0.1.0"
+edition = "2021"
+description = "A terminal UI that hunts down the junk eating your disk: Rust target dirs, cargo caches, node_modules, app caches and huge files."
+license = "MIT"
+repository = "https://github.com/flaxodotdev/rsty"
+readme = "README.md"
+keywords = ["disk", "cleanup", "tui", "cargo", "target"]
+categories = ["command-line-utilities", "filesystem"]
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4.5", features = ["derive"] }
+crossterm = "0.28"
+dirs = "6"
+jwalk = "0.8"
+ratatui = "0.29"
+rayon = "1.10"
+trash = "5"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
